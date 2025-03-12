@@ -19,14 +19,14 @@ public class StatisticsController {
     @GetMapping("/average-water-content")
     public double getAverageWaterContent() {
         List<Sample> samples = sampleRepository.findAll();
-        return samples.stream().mapToDouble(Sample::waterContent).average().orElse(0);
+        return samples.stream().mapToDouble(Sample::getWaterContent).average().orElse(0);
     }
 
     @GetMapping("/threshold-exceeding-samples")
     public List<Sample> getThresholdExceedingSamples() {
         double thresholdWaterContent = 100; // Example threshold
         return sampleRepository.findAll().stream()
-            .filter(sample -> sample.waterContent() > thresholdWaterContent)
+            .filter(sample -> sample.getWaterContent() > thresholdWaterContent)
             .collect(Collectors.toList());
     }
 }

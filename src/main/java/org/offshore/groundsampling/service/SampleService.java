@@ -35,12 +35,12 @@ public class SampleService {
         return Mono.justOrEmpty(sampleRepository.findById(id))
             .flatMap(existingSample -> Mono.just(sampleRepository.save(new Sample(
                 id,
-                sample.location(),
-                sample.depth(),
-                sample.dateCollected(),
-                sample.unitWeight(),
-                sample.waterContent(),
-                sample.shearStrength()
+                sample.getLocation(),
+                sample.getDepth(),
+                sample.getDateCollected(),
+                sample.getUnitWeight(),
+                sample.getWaterContent(),
+                sample.getShearStrength()
             ))));
     }
 
@@ -55,9 +55,9 @@ public class SampleService {
         double shearStrengthThreshold = thresholdConfig.getShearStrengthThreshold();
 
         return Flux.fromIterable(sampleRepository.findAll())
-            .filter(sample -> sample.unitWeight() > unitWeightThreshold ||
-                sample.waterContent() > waterContentThreshold ||
-                sample.shearStrength() > shearStrengthThreshold);
+            .filter(sample -> sample.getUnitWeight() > unitWeightThreshold ||
+                sample.getWaterContent() > waterContentThreshold ||
+                sample.getShearStrength() > shearStrengthThreshold);
     }
 
     public Flux<Sample> getSamplesByLocation(Long locationId) {
