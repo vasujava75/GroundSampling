@@ -1,9 +1,7 @@
 package org.offshore.groundsampling.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,9 +10,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@EqualsAndHashCode
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
 }
