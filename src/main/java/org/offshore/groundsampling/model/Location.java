@@ -17,6 +17,4 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
-    @OneToMany(mappedBy = "location")
-    List<Sample> samples;
 }
