@@ -6,7 +6,6 @@ import org.offshore.groundsampling.model.Location;
 import org.offshore.groundsampling.model.Sample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
@@ -33,10 +32,10 @@ public class SampleRepositoryTest {
         sampleRepository.save(sample2);
 
         // When
-          List<Sample> samples = sampleRepository.findByLocation(location);
+        List<Sample> samples = sampleRepository.findByLocation(location);
 
         // Then
-         assertThat(samples).hasSize(2);
-         assertThat(samples).extracting(Sample::getDepth).containsExactlyInAnyOrder(10.0, 15.0);
+        assertThat(samples).hasSize(2);
+        assertThat(samples).extracting(Sample::getDepth).containsExactlyInAnyOrder(10.0, 15.0);
     }
 }

@@ -1,5 +1,7 @@
 package org.offshore.groundsampling.security;
 
+public class SecurityConfig {
+/*
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -13,8 +15,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -47,5 +49,5 @@ public class SecurityConfig {
             .httpBasic(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable());
         return http.build();
-    }
+    }*/
 }
